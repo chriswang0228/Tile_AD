@@ -8,7 +8,7 @@ git clone https://github.com/chriswang0228/Tile_AD.git
 ```  
 2. Navigate to the project directory:
 ```  
-cd MBF-UNet
+cd Tile_AD
 ``` 
 3. Install the required packages:
 ```  
