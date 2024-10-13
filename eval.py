@@ -2,7 +2,7 @@ import os, torch
 from tqdm import tqdm
 from dataset import *
 from model import DLV3_CoroCL
-from util import detector, calculate_auc_ap_fpr95
+from utils import detector, calculate_auc_ap_fpr95
 
 device = 'cuda'
 model = DLV3_CoroCL(ckpt = None).to(device)

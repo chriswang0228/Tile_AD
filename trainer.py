@@ -1,22 +1,12 @@
 # -*- coding: utf-8 -*-
-
-import numpy as np 
-import pandas as pd
-from sklearn.model_selection import train_test_split
-import torch.nn as nn
-from torch.utils.data import Dataset, DataLoader
-from torchvision import transforms as T
-import torch.nn.functional as F
-from util import detector, calculate_auc_ap_fpr95
-import cv2, time, os, wandb, gc, torch, math, argparse
-from statistics import median
+from torch.utils.data import DataLoader
+from utils import detector, calculate_auc_ap_fpr95
+import cv2, os, wandb, torch, argparse
 from tqdm.auto import tqdm
 from dataset import *
 from model import DLV3_CoroCL
 from rpl_coroclcode.loss.PositiveEnergy import energy_loss, energy_loss_3d
 from rpl_coroclcode.loss.CoroCL import ContrastLoss
-import segmentation_models_pytorch_v2 as smp
-from transformers import SegformerFeatureExtractor, SegformerForSemanticSegmentation
 
 class Trainer:
     def __init__(self, id_img_path, ood_img_path, val_img_path, val_mask_path, save_path, max_lr = 1e-3, epochs = 80, backbone = 'efficientnet-b6',

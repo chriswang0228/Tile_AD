@@ -1,0 +1,1 @@
+python3 inferere.py --img_path ./datasets/val_test/test/image/ --save_path ./output --ckpt ./ckpts/ckpt.pth
